@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>Document</title>
+</head>
+
+<body>
+  <canvas id="test"></canvas>
+
+  <script>
+    const canvas = document.getElementById('test');
+    const ctx = canvas.getContext('2d');
+    // 设置fillStyle属性可以是CSS颜色，渐变，或图案； 填充颜色
+    // ctx.fillStyle = '#eee';
+    // fillRect(x,y,width,height) 方法定义了矩形当前的填充方式。
+    // ctx.fillRect(50, 50, 200, 200);
+
+    // 起始位置 (x, y)
+    // ctx.moveTo(0, 0);
+    // 结束位置 (x, y)
+    // ctx.lineTo(200, 200);
+    // 画线
+    // ctx.stroke();
+
+    // 画圆 arc(x,y,r,start,stop)
+    // ctx.arc(95, 50, 40, 0, 2 * Math.PI);
+    // ctx.stroke();
+
+    // 定义字体
+    // ctx.font = '30px Arial';
+    // fillText(text,x,y) - 在 canvas 上绘制实心的文本
+    // ctx.fillText('hello world', 10, 50);
+    // strokeText(text,x,y) - 在 canvas 上绘制空心的文本
+    // ctx.strokeText('hello canvas', 10, 100);
+
+    // 渐变
+    /* createLinearGradient(x,y,x1,y1) - 创建线条渐变
+    createRadialGradient(x,y,r,x1,y1,r1) - 创建一个径向/圆渐变
+    当我们使用渐变对象，必须使用两种或两种以上的停止颜色。
+    addColorStop()方法指定颜色停止，参数使用坐标来描述，可以是0至1.
+    使用渐变，设置fillStyle或strokeStyle的值为 渐变，然后绘制形状，如矩形，文本，或一条线。 */
+    var grd = ctx.createLinearGradient(0, 0, 200, 0);
+    grd.addColorStop(0, "red");
+    grd.addColorStop(1, "white");
+    // 填充渐变
+    ctx.fillStyle = grd;
+    ctx.fillRect(10, 10, 150, 80);
+  </script>
+</body>
+
+</html>
